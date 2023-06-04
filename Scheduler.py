@@ -15,6 +15,9 @@ from pybit.unified_trading import HTTP
 import schedule
 from Bot import run as run
 
+#This is the scheduler that runs the bot every 5 minutes
+
+
 def round_to_five_minutes():
     current_time = time.localtime()
     rounded_minutes = ((current_time.tm_min + 4) // 5) * 5
@@ -25,7 +28,7 @@ def round_to_five_minutes():
 
 while True:
     current_time = time.localtime()
-    if current_time.tm_min % 5 == 0 and current_time.tm_sec < 40:
+    if current_time.tm_min % 5 == 0 and current_time.tm_sec < 10:
         run()
         time.sleep(30)  # Wait for 5 minutes
     else:
