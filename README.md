@@ -22,6 +22,7 @@ df_signals = df[["close", "long_signals", "short_signals", "time"]].iloc[-2]
 
 print("Finished calculating signals 🚀")
 """
+```
 
 Replace the placeholder strings "This is where you will store the long signals" and "This is where you will store the short signals" with your actual trading signals.
 
