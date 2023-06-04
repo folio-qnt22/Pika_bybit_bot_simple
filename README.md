@@ -7,7 +7,8 @@ How to use:
 - The code bot is in Bot.py
 - You need to write your own signal in this block
 
-    ######################################################
+
+   
     # calculate signals for long and short
     df = get_data(no_days=29)  # download the data
 
@@ -20,7 +21,7 @@ How to use:
     df_signals = df[["close", "long_signals", "short_signals", "time"]].iloc[-2]
 
     print("Finished calculating signals 🚀")
-    ######################################################
+
 
 
 - After the signal is setup, run Scheduler.py. It is set to run every 5 mins after a candle is closed
