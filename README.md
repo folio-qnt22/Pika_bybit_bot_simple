@@ -9,7 +9,7 @@ How to use:
 
 
    
-    # calculate signals for long and short
+    - calculate signals for long and short
     df = get_data(no_days=29)  # download the data
 
     long_signals = "this is where you will store the signals"
