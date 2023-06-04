@@ -137,31 +137,6 @@ def run():
 
         return kline
 
-    def calculate_rsi(prices, period):
-        # Calculate price changes
-        delta = prices.diff()
-
-        # Calculate gains and losses
-        gain = delta.where(delta > 0, 0)
-        loss = -delta.where(delta < 0, 0)
-
-        # Calculate average gains and losses
-        avg_gain = gain.rolling(window=period).mean()
-        avg_loss = loss.rolling(window=period).mean()
-
-        # Calculate relative strength
-        rs = avg_gain / avg_loss
-
-        # Calculate RSI
-        rsi = 100 - (100 / (1 + rs))
-        return rsi
-
-    def calculate_ema(prices, period):
-        # Calculate exponential moving average
-        ema = prices.ewm(span=period, adjust=False).mean()
-
-        return ema
-
     def calculate_position_size(price, loss_amount_in_usd, percentage_loss):
         # percentage_loss = 0.03  # 3% loss
         btc_size = loss_amount_in_usd / (price * percentage_loss)
@@ -304,6 +279,31 @@ def run():
 
 
     ######################################################
+    def calculate_rsi(prices, period):
+        # Calculate price changes
+        delta = prices.diff()
+
+        # Calculate gains and losses
+        gain = delta.where(delta > 0, 0)
+        loss = -delta.where(delta < 0, 0)
+
+        # Calculate average gains and losses
+        avg_gain = gain.rolling(window=period).mean()
+        avg_loss = loss.rolling(window=period).mean()
+
+        # Calculate relative strength
+        rs = avg_gain / avg_loss
+
+        # Calculate RSI
+        rsi = 100 - (100 / (1 + rs))
+        return rsi
+
+    def calculate_ema(prices, period):
+        # Calculate exponential moving average
+        ema = prices.ewm(span=period, adjust=False).mean()
+
+        return ema
+    
     # calculate signals for long and short
     df = get_data(no_days=29)  # download the data
 
