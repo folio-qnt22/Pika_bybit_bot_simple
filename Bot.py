@@ -163,7 +163,7 @@ def run():
         return ema
 
     def calculate_position_size(price, loss_amount_in_usd, percentage_loss):
-        # percentage_loss = 0.015  # 3% loss
+        # percentage_loss = 0.03  # 3% loss
         btc_size = loss_amount_in_usd / (price * percentage_loss)
         return btc_size
 
